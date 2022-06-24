@@ -36,3 +36,94 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* CSS */
+.wrapper__content {
+  width: 450px;
+  margin: 0 auto;
+  background: #61dafb;
+}
+
+.wrapper__flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Main Title */
+
+.wrapper__title {
+  color: aliceblue;
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Main card with information about temp now and img weather */
+.card__temp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #cadcff;
+  margin-bottom: 20px;
+  padding-right: 100px;
+  padding-left: 100px;
+  border-radius: 20px;
+}
+
+.card__temp img {
+  width: 250px;
+  margin: 0;
+  padding: 0;
+}
+
+.card__inform {
+  color: aliceblue;
+  font-size: 3rem;
+}
+
+
+/* Information */
+.information {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: #4482ff;
+  border-radius: 20px;
+  color: aliceblue;
+}
+
+.air__quality {
+  width: 33.33333%;
+  padding: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.air__quality:hover {
+  background: #689bff;
+  cursor: pointer;
+}
+
+.air__quality img {
+  width: 60px;
+}
+
+.inform__title {
+  margin: 0;
+}
+
+
+/* Information about sunrise and sunset */
+.sun__rise-set {
+  
+}

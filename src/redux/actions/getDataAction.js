@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const axiosData = () => async (dispatch) => {
     try {
-        const data = await axios.get('https://api.openweathermap.org/data/2.5/weather?lat=54&lon=28&appid=fcd7780b300a0d0160ee4aef2084c4a8');
+        const data = await axios.get('https://api.openweathermap.org/data/2.5/weather?lat=25&lon=80&appid=fcd7780b300a0d0160ee4aef2084c4a8');
 
         dispatch(getData(data))
     }
