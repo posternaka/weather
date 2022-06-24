@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: 100px;
 }
 
 .App-logo {
@@ -41,9 +42,11 @@
 
 /* CSS */
 .wrapper__content {
-  width: 450px;
+  width: 480px;
   margin: 0 auto;
-  background: #61dafb;
+  padding: 20px;
+  background: rgb(23, 27, 39, .8);
+  border-radius: 20px;
 }
 
 .wrapper__flex {
@@ -58,72 +61,110 @@
 
 .wrapper__title {
   color: aliceblue;
-  font-size: 3rem;
+  font-size: 4rem;
   margin: 0;
-  padding: 0;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 
 /* Main card with information about temp now and img weather */
 .card__temp {
+  width: 520px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  background: #cadcff;
+  justify-content: space-around;
+  align-items: center;
+  background: #cbddff4b;
   margin-bottom: 20px;
-  padding-right: 100px;
-  padding-left: 100px;
-  border-radius: 20px;
+
+  backdrop-filter: blur(20px);
 }
 
 .card__temp img {
-  width: 250px;
+  width: 100px;
+  height: 100px;
   margin: 0;
   padding: 0;
 }
 
 .card__inform {
   color: aliceblue;
-  font-size: 3rem;
+  font-size: 4rem;
+}
+
+.card__suptitle {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.card__title {
+  text-transform: uppercase;
+  font-size: 1rem;
 }
 
 
 /* Information */
 .information {
+  width: 450px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background: #4482ff;
+  background: #3d4148;
   border-radius: 20px;
   color: aliceblue;
 }
 
-.air__quality {
-  width: 33.33333%;
-  padding: 10px;
-  margin-right: 20px;
-  margin-left: 20px;
+.information_blog {
+  width: 100px;
+  height: 100px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.air__quality:hover {
-  background: #689bff;
+.information_blog:hover {
   cursor: pointer;
+  transform: scale(1.1);
+  transition: transform .2s;
 }
 
-.air__quality img {
+.information_blog img {
   width: 60px;
 }
 
 .inform__title {
   margin: 0;
+  font-size: 0.9rem;
+}
+
+.inform__suptitle {
+  text-transform: uppercase;
 }
 
 
 /* Information about sunrise and sunset */
 .sun__rise-set {
-  
+  width: 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  background: #3d4148;
+  border-radius: 20px;
+  color: aliceblue;
+}
+
+.fa-icons {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 10px;
+}
+
+.fa-clock {
+  width: 60px;
+  height: 60px;
 }

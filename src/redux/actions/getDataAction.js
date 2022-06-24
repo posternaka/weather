@@ -1,9 +1,9 @@
 import { GET_DATA } from './actionTypes';
 import axios from 'axios';
 
-export const axiosData = () => async (dispatch) => {
+export const axiosData = (city) => async (dispatch) => {
     try {
-        const data = await axios.get('https://api.openweathermap.org/data/2.5/weather?lat=25&lon=80&appid=fcd7780b300a0d0160ee4aef2084c4a8');
+        const data = await axios.get(`http://api.openweathermap.org/data/2.5/weather?id=${city}&lang=ru&appid=fcd7780b300a0d0160ee4aef2084c4a8`);
 
         dispatch(getData(data))
     }
