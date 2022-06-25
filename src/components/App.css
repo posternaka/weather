@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  margin-top: 100px;
+  /* margin-top: 80px; */
 }
 
 .App-logo {
@@ -45,7 +45,7 @@
   width: 480px;
   margin: 0 auto;
   padding: 20px;
-  background: rgb(23, 27, 39, .8);
+  background: rgb(23, 27, 39, .5);
   border-radius: 20px;
 }
 
@@ -141,7 +141,7 @@
 }
 
 .inform__suptitle {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 
@@ -156,6 +156,10 @@
   background: #3d4148;
   border-radius: 20px;
   color: aliceblue;
+}
+
+.sunrise, .sunset {
+  /* text-transform: uppercase; */
 }
 
 .fa-icons {
