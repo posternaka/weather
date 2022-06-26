@@ -1,13 +1,12 @@
 import './App.css';
 import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import { axiosData } from '../redux/actions/getDataAction';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Languages from './Languages';
-import Information from './Information';
-import Footer from './Footer';
 import Search from './Search';
-import MainInformation from './MainInformation';
+import Main from './Main';
 
 
 function App() {
@@ -15,48 +14,40 @@ function App() {
   const dispatch = useDispatch();
   const store = useSelector(store => store.data);
   const lang = useSelector(store => store.lang);
+  const id_country = useSelector(store => store.id_country);
 
   useEffect(() => {
-    dispatch(axiosData(630336, lang))
-  }, [])
+    dispatch(axiosData(id_country, lang))
+  }, [id_country]);
 
   return (
-    <div className="App">
 
-      
+    <div className="App">
 
       { 
         store && 
           store.map((city, index) => (
             <div key={index+city} className='wrapper__content'>
 
-              {/* Search component and show results */}
-              <Search />
+              <BrowserRouter> 
+                <Routes>
 
-              <Languages />
-
-              <div className="wrapper__flex">
+                  {/* Search component and show results */}
+                  <Route path="/" element={<Search />} />
               
-                {/* Main title */}
-                <h1 className="wrapper__title">{city.name}</h1>
-                
-                {/* Main card with information about temp now and img weather */}
-                <MainInformation city={city} />
+                  <Route path="/content" element={<Main city={city} lang={lang} />} />
 
-                {/* Informative about weather */}
-                <Information city={city} lang={lang} />
+                </Routes>
+              </BrowserRouter>
 
-                {/* Information about sunrise and sunset */}
-                <Footer city={city} lang={lang} />
-
-              </div>
             </div>  
           )
         )
-      };
+      }
 
     </div>
-  );
+  )
+
 }
 
 export default App;

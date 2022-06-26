@@ -13,8 +13,6 @@ import { faGauge } from "@fortawesome/free-solid-svg-icons";
 
 function Information({city, lang}) {
 
-    console.log(city);
-
     return (
         <div className="information">
 

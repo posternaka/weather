@@ -1,8 +1,13 @@
 import { useState } from "react";
+import countries from "../data";
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setIdCountry } from "../redux/actions/setIdCountryAction";
 
 
 function Search() {
-    const countries = [{country: 'belarus', id: '630336'}, {country: 'russia', id: '2017370'},];
+    const dispatch = useDispatch();
+
     const [findCountries, setFindCountries] = useState('');
 
     const handleFindCountries = countries.filter(country => {
@@ -11,19 +16,40 @@ function Search() {
 
 
     return (
-    <>
-        <input type="text" onChange={(e) => setFindCountries(e.target.value)}/>
+    <div className="search">
+        <input 
+            type="text" 
+            placeholder="Например Belarus" 
+            onChange={(e) => setFindCountries(e.target.value)} 
+        />
 
-        <div className="information">
-        { 
-            handleFindCountries.map((country, index) => (
-                <div key={index+country} className="information_blog">
-                    <p className="inform__suptitle">{country.country}</p>
-                </div>
-            ))
-        }
+        <div className="information search_info">
+
+            {   
+                findCountries.length < 1 
+                ? <p className="search_placeholder">
+                    Выберите страну
+                </p>
+                : handleFindCountries
+                    .map((country, index) => (
+                        <Link key={index+country} to="/content" onClick={() => dispatch(setIdCountry(country.id))}>
+                            <div 
+                                key={index+country} 
+                                className="search_blog"
+                            >
+                                <p 
+                                    className="inform__suptitle" 
+                                    
+                                >
+                                    {country.country}
+                                </p>
+                            </div>
+                        </Link>
+                    ))
+            }
+
         </div>
-    </>
+    </div>
     )
 }
 
