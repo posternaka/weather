@@ -130,6 +130,11 @@
   align-items: center;
 }
 
+.search_nothing {
+  width: 100%;
+  padding: 40px;
+}
+
 .search_blog:hover {
   background: rgba(255, 255, 255, 0.101);
   border-radius: 20px;

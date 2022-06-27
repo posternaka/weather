@@ -49,16 +49,13 @@ function Search() {
 
         <div className="information search_info">
 
-            {   
-                findCountries.length < 1 
-                ? countries
+            {
+                handleFindCountries.length 
+                ? handleFindCountries
                     .map((country, index) => (
                         handleMap(country, index)
                     ))
-                : handleFindCountries
-                    .map((country, index) => (
-                        handleMap(country, index)
-                    ))
+                : <div className="search_nothing">Никаих совпадений</div>
             }
 
         </div>
