@@ -13,44 +13,30 @@ import { faGauge } from "@fortawesome/free-solid-svg-icons";
 
 function Information({city, lang}) {
 
+    const defaultDiv = (icon, params, en, ru, character = '') => {
+        return (
+            <div className="information_blog">
+                <FontAwesomeIcon icon={icon} className='fa-icons'/>
+                <p className="inform__title">{params}{character}</p>
+                <p className="inform__suptitle">{lang === 'en' ? en : ru}</p>
+            </div>
+        )
+    }
+
     return (
         <div className="information">
 
-            <div className="information_blog">
-                <FontAwesomeIcon icon={faSeedling} className='fa-icons'/>
-                <p className="inform__title">{city.main.humidity}</p>
-                <p className="inform__suptitle">{lang === 'en' ? "humidity" : "влажность"}</p>
-            </div>
+            {defaultDiv(faSeedling, city.main.humidity, "humidity", "влажность")}
             
-            <div className="information_blog">
-                <FontAwesomeIcon icon={faGauge} className='fa-icons'/>
-                <p className="inform__title">{city.main.pressure}hpa</p>
-                <p className="inform__suptitle">{lang === 'en' ? "pressure" : "давление"}</p>
-            </div>
+            {defaultDiv(faGauge, city.main.pressure, "pressure", "давление")}
             
-            <div className="information_blog">
-                <FontAwesomeIcon icon={faCloud} className='fa-icons'/>
-                <p className="inform__title">{city.clouds ? city.clouds["all"] : 0}</p>
-                <p className="inform__suptitle">{lang === 'en' ? "clouds" : "облака"}</p>
-            </div>
+            {defaultDiv(faCloud, city.clouds ? city.clouds["all"] : 0, "clouds", "облачность")}
             
-            <div className="information_blog">
-                <FontAwesomeIcon icon={faFireFlameSimple} className='fa-icons'/>
-                <p className="inform__title">{city.rain ? city.rain["1h"] : 0}mm</p>
-                <p className="inform__suptitle">{lang === 'en' ? "precipitation" : "осадки"}</p>
-            </div>
+            {defaultDiv(faFireFlameSimple, city.rain ? city.rain["1h"] : 0, "precipitation", "осадки", 'mm')}
             
-            <div className="information_blog">
-                <FontAwesomeIcon icon={faWind} className='fa-icons' />
-                <p className="inform__title">{Math.floor(city.wind.speed)}km/h</p>
-                <p className="inform__suptitle">{lang === 'en' ? "wind" : "ветер"}</p>
-            </div>
+            {defaultDiv(faWind, Math.floor(city.wind.speed), "wind", "ветер", 'km/h')}
             
-            <div className="information_blog">
-                <FontAwesomeIcon icon={faEye} className='fa-icons'/>
-                <p className="inform__title">{(city.visibility / 1000)}km</p>
-                <p className="inform__suptitle">{lang === 'en' ? "visibility" : "видимость"}</p>
-            </div>
+            {defaultDiv(faEye, (city.visibility / 1000), "visibility", "видимость", 'km')}
 
         </div>
     )

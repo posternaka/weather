@@ -1,22 +1,46 @@
 import { useState } from "react";
-import countries from "../data";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setIdCountry } from "../redux/actions/setIdCountryAction";
 
 
 function Search() {
+    const countries = require('../data.json');
+    // console.log(countries);
+
     const dispatch = useDispatch();
 
     const [findCountries, setFindCountries] = useState('');
 
     const handleFindCountries = countries.filter(country => {
-        return country.country.toLocaleLowerCase().includes(findCountries.toLocaleLowerCase());
-    });
+            return country.country.toLocaleLowerCase().includes(findCountries.toLocaleLowerCase())
+        });
 
+    const handleMap = (country, index) => (
+        <Link 
+            key={index+country} 
+            to="/content" 
+            onClick={() => dispatch(setIdCountry(country.id))}
+        >
+            <div 
+                key={index+country} 
+                className="search_blog"
+            >
+                <p 
+                    className="inform__suptitle" 
+                    
+                >
+                    {country.country}
+                </p>
+            </div>
+        </Link>
+    )
+
+    console.log(handleFindCountries);
 
     return (
     <div className="search">
+
         <input 
             type="text" 
             placeholder="Например Belarus" 
@@ -27,24 +51,13 @@ function Search() {
 
             {   
                 findCountries.length < 1 
-                ? <p className="search_placeholder">
-                    Выберите страну
-                </p>
+                ? countries
+                    .map((country, index) => (
+                        handleMap(country, index)
+                    ))
                 : handleFindCountries
                     .map((country, index) => (
-                        <Link key={index+country} to="/content" onClick={() => dispatch(setIdCountry(country.id))}>
-                            <div 
-                                key={index+country} 
-                                className="search_blog"
-                            >
-                                <p 
-                                    className="inform__suptitle" 
-                                    
-                                >
-                                    {country.country}
-                                </p>
-                            </div>
-                        </Link>
+                        handleMap(country, index)
                     ))
             }
 

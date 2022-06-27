@@ -12,21 +12,19 @@ import Main from './Main';
 function App() {
 
   const dispatch = useDispatch();
-  const store = useSelector(store => store.data);
-  const lang = useSelector(store => store.lang);
-  const id_country = useSelector(store => store.id_country);
+  const {data, id_country, lang} = useSelector(store => store);
 
   useEffect(() => {
     dispatch(axiosData(id_country, lang))
-  }, [id_country]);
+  }, [id_country, lang]);
 
   return (
 
     <div className="App">
 
       { 
-        store && 
-          store.map((city, index) => (
+        data && 
+          data.map((city, index) => (
             <div key={index+city} className='wrapper__content'>
 
               <BrowserRouter> 
