@@ -31,7 +31,6 @@ function App() {
                 <Routes>
 
                   {/* Search component and show results */}
-                  <Route path="*" element={<Search />}/>
 
                   <Route path="/" element={<Search />} />
               
