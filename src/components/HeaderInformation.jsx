@@ -2,7 +2,7 @@
 
 function MainInformation({city}) {
     const imgURL = (img) => {
-        return 
+        return `https://openweathermap.org/img/wn/${img}@2x.png`
     } 
 
     return (

@@ -32,6 +32,7 @@ function App() {
 
                   {/* Search component and show results */}
 
+                  <Route path="*" element={<Search />} />
                   <Route path="/" element={<Search />} />
               
                   <Route path="/content" element={<Main city={city} lang={lang} />} />

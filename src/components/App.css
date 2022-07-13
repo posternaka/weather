@@ -123,11 +123,12 @@
 .search_blog {
   width: 100px;
   height: 100px;
-  padding: 0 25px;
+  padding: 0 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1rem;
 }
 
 .search_nothing {
