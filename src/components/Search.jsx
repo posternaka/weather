@@ -6,7 +6,6 @@ import { setIdCountry } from "../redux/actions/setIdCountryAction";
 
 function Search() {
     const countries = require('../data.json');
-    // console.log(countries);
 
     const dispatch = useDispatch();
 
@@ -36,7 +35,6 @@ function Search() {
         </Link>
     )
 
-    console.log(handleFindCountries);
 
     return (
     <div className="search">
